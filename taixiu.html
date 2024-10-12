@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vòng quay Rương Liên Quân</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .wheel-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .wheel {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #000;
+            border-radius: 50%;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .chest-icon {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 20px;
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vòng quay trang phục</h1>
+
+    <div class="wheel-container">
+        <div class="wheel" id="wheel1">Chưa quay</div>
+        <div class="wheel" id="wheel2">Chưa quay</div>
+        <div class="wheel" id="wheel3">Chưa quay</div>
+        <div class="wheel" id="wheel4">Chưa quay</div>
+        <div class="wheel" id="wheel5">Chưa quay</div>
+        <div class="wheel" id="wheel6">Chưa quay</div>
+        <div class="wheel" id="wheel7">Chưa quay</div>
+        <div class="wheel" id="wheel8">Chưa quay</div>
+        <div class="wheel" id="wheel9">Chưa quay</div>
+        <div class="wheel" id="wheel10">Chưa quay</div>
+    </div>
+
+    <button class="button" onclick="spinWheel(1)">Rương 1</button>
+    <button class="button" onclick="spinWheel(2)">Rương 2</button>
+    <button class="button" onclick="spinWheel(3)">Rương 3</button>
+    <button class="button" onclick="spinWheel(4)">Rương 4</button>
+    <button class="button" onclick="spinWheel(5)">Rương 5</button>
+    <button class="button" onclick="spinWheel(6)">Rương 6</button>
+    <button class="button" onclick="spinWheel(7)">Rương 7</button>
+    <button class="button" onclick="spinWheel(8)">Rương 8</button>
+    <button class="button" onclick="spinWheel(9)">Rương 9</button>
+    <button class="button" onclick="spinWheel(10)">Rương 10</button>
+
+    <button class="button" onclick="spinAll()">Quay tất cả</button>
+    
+    <button class="button" onclick="resetWheels()">Reset</button>
+
+    <div class="chest-icon">!By HaiDang</div>
+
+    <script>
+        function spinWheel(wheelNumber) {
+            const result = Math.random();
+            const wheelElement = document.getElementById('wheel' + wheelNumber);
+            if (result < 0.02) {
+                wheelElement.textContent = 'Trang phục';
+                wheelElement.style.backgroundColor = 'gold';
+            } else {
+                wheelElement.textContent = 'Huy Hiệu';
+                wheelElement.style.backgroundColor = 'silver';
+            }
+        }
+
+        function spinAll() {
+            for (let i = 1; i <= 10; i++) {
+                spinWheel(i);
+            }
+        }
+
+        function resetWheels() {
+            for (let i = 1; i <= 10; i++) {
+                const wheelElement = document.getElementById('wheel' + i);
+                wheelElement.textContent = 'Chưa quay';
+                wheelElement.style.backgroundColor = 'transparent';
+            }
+        }
+    </script>
+</body>
+</html>
+
